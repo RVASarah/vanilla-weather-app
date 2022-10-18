@@ -27,6 +27,7 @@ function displayTemperature(response) {
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
   let dateElement = document.querySelector("#date");
+
   temperatureElement.innerHTML = Math.round(response.data.temperature.current);
   cityElement.innerHTML = response.data.city;
   descriptionElement.innerHTML = response.data.condition.description;
@@ -36,6 +37,7 @@ function displayTemperature(response) {
 }
 
 let apiKey = "d4a256f3bb9402t22bd7345b86oaccce";
-let apiUrl = `https://api.shecodes.io/weather/v1/current?query=Richmond&key=${apiKey}&units=metric`;
+let city = "Richmond";
+let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
 
 axios.get(apiUrl).then(displayTemperature);
